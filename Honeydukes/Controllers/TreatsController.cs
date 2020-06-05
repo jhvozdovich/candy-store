@@ -1,14 +1,10 @@
 using Honeydukes.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System;
 
 namespace Honeydukes.Controllers
 {
@@ -72,13 +68,6 @@ namespace Honeydukes.Controllers
     {
       if (FlavorId != 0)
       {
-        // int oldFlavorTreat;
-        // foreach ( flavor in treat.Flavors)
-        // {
-        //   oldFlavorTreat =
-        // }
-        // var oldFlavor = _db.FlavorTreats.FirstOrDefault(flavorTreat => treat.Flavors.Contains(FlavorId) && flavorTreat.TreatId == treat.TreatId);
-        // _db.FlavorTreats.Remove(oldFlavor);
         _db.FlavorTreats.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
       }
       _db.Entry(treat).State = EntityState.Modified;

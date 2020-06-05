@@ -18,11 +18,6 @@ else
   {
     <p>
       @Html.ActionLink($"{@join.Flavor.Name}", "Details", "Flavors", new { id = join.Flavor.FlavorId })
-      @* @using (Html.BeginForm("DeleteFlavor", "Movies"))
-      {
-        @Html.Hidden("joinId", @join.FlavorTreatId)
-        <input type="submit" value="Reducto"/>
-      } *@
     </p>
   }
 }

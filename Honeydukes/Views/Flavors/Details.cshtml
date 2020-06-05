@@ -3,7 +3,6 @@
 }
 
 @model Honeydukes.Models.Flavor
-@using Honeydukes.Models
 
 <h2>@Html.DisplayFor(model => model.Name)</h2>
 <p>@Html.ActionLink("Reparo", "Edit", new { id = Model.FlavorId }) @Html.ActionLink("Reducto", "Delete", new { id = Model.FlavorId })</p>
@@ -25,4 +24,3 @@ else
 <button>@Html.ActionLink("Accio Treat", "Create", "Treats")</button>
 <br>
 <button>@Html.ActionLink("Back to Flavours", "Index")</button>
-
