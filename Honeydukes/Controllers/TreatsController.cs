@@ -46,5 +46,15 @@ namespace Honeydukes.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    [HttpGet]
+    public ActionResult Details(int id)
+    {
+      var thisTreat = _db.Treats
+        .Include(treat => treat.Flavors)
+        .ThenInclude(join => join.Flavor)
+        .FirstOrDefault(treats => treats.TreatId == id);
+      return View(thisTreat);
+    }
   }
 }

@@ -1,0 +1,33 @@
+@{
+    Layout ="_Layout";
+}
+
+@model Honeydukes.Models.Treat
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+<p>@Html.ActionLink("Reparo", "Edit", new { id = Model.TreatId }) @Html.ActionLink("Reducto", "Delete", new { id = Model.TreatId })</p>
+
+@if(@Model.Flavors.Count == 0)
+{
+  <p>@Html.DisplayFor(model => model.Name) flavours are unknown! Accio flavours!</p>
+}
+else
+{
+  <h4>Available Flavours:</h4>
+  @foreach (var join in Model.Flavors)
+  {
+    <p>
+      @Html.ActionLink($"{@join.Flavor.Name}", "Details", "Flavors", new { id = join.Flavor.FlavorId })
+      @* @using (Html.BeginForm("DeleteFlavor", "Movies"))
+      {
+        @Html.Hidden("joinId", @join.FlavorTreatId)
+        <input type="submit" value="Reducto"/>
+      } *@
+    </p>
+  }
+}
+
+<p>@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(model => model.Price) Sickles</p>
+
+<br>
+<button>@Html.ActionLink("Back to Treats", "Index")</button>
