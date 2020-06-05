@@ -8,9 +8,22 @@ body {
   color: rgb(60, 71, 77)
 }
 
+a {
+  color: rgb(88, 208, 222);
+}
+
+a:hover {
+  color: rgb(194, 81, 181);
+}
+
+.nav a {
+  color: rgb(78, 152, 160, 1);
+}
+
 .box {
-  background: rgba(247, 246, 243, 0.85);
-  border-radius: 3px;
+  background: rgba(252, 252, 252, 0.9);
+  border-radius: 10px;
+  font-size: medium;
   border: 8px solid rgb(250, 157, 229);
   padding: 20px;
   text-align: center;
@@ -20,7 +33,6 @@ body {
 .nav {
   top: 0px;
   list-style-type: none;
-  margin: 0;
   padding-left: 10%;
   width: 100%;
   opacity: 0.8;
@@ -28,10 +40,13 @@ body {
   position: fixed;
   overflow: auto;
   display: inline;
+  font-weight: bolder;
+  font-size: large;
 }
 
 .nav li {
   float: left;
+  color: rgb(95, 180, 189);
 }
 
 h1, h2, h3, h4 {
@@ -43,13 +58,14 @@ button {
 }
 
 .navbtn {
-  margin-top: 3px;
+  margin-top: 5px;
   margin-left: 5px;
+  font-weight: bold;
 }
 
 .nav li.hello {
   opacity: 0.95;
-  color: white;
+  color: rgba(252, 252, 252, 1);
   margin-top: 10px;
   float: right;
 }
@@ -59,5 +75,25 @@ button {
 }
 
 .nav-greeting {
-  margin-right: 10%;
+  margin-right: 2%;
+}
+
+.btn, button {
+  background-color: rgb(95, 180, 189);
+  color: rgba(252, 252, 252, 1);
+  border: 2px solid rgb(250, 224, 157);
+}
+
+.btn a, button a  {
+  color: rgba(252, 252, 252, 1);
+}
+
+.btn:hover, button:hover {
+  background-color: rgb(250, 224, 157);
+  color: rgba(95, 180, 189);
+  border: 2px solid rgb(95, 180, 189);
+}
+
+.btn a:hover, button a:hover  {
+  color: rgba(95, 180, 189);
 }

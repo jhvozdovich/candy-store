@@ -10,20 +10,24 @@
       <li>@Html.ActionLink("Home", "Index", "Home")</li>
       <li>@Html.ActionLink("Flavours", "Index", "Flavors")</li>
       <li>@Html.ActionLink("Treats", "Index", "Treats")</li>
+      <div class="nav-greeting">
       @if (User.Identity.IsAuthenticated)
       {
-        <div class="nav-greeting">
-          @using (Html.BeginForm("LogOff", "Account"))
-          {
-            <li><input type="submit" value="Log out" class="btn navbtn"/></li>
-          }
-          <li class="hello">Welcome @User.Identity.Name!</li>
-        </div>
+        @using (Html.BeginForm("LogOff", "Account"))
+        {
+          <li><input type="submit" value="Log out" class="btn navbtn"/></li>
+        }
+        <li class="hello">Welcome @User.Identity.Name!</li>
       }
       else
       {
+         @using (Html.BeginForm("Login", "Account", "Login"))
+          {
+            <li><button class="btn navbtn">@Html.ActionLink("Log in", "Login", "Account")</button></li>
+          }
         <li class="hello">Greetings Muggle!</li>
       }
+      </div>
     </ul>
     <div class="box">
       @RenderBody()

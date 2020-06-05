@@ -12,11 +12,11 @@
 
   @using (Html.BeginForm("LogOff", "Account"))
   {
-    <input type="submit" value="Mischief Managed"/>
+    <input class="btn" type="submit" value="Mischief Managed"/>
   }
 }
 else
 {
-  <p>@Html.ActionLink("Register", "Register")</p>
-  <p>@Html.ActionLink("Log in", "Login")</p>
+  <button>@Html.ActionLink("Register", "Register")</button>
+  <button>@Html.ActionLink("Log in", "Login")</button>
 }
