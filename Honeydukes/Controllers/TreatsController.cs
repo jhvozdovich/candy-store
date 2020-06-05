@@ -70,6 +70,8 @@ namespace Honeydukes.Controllers
     {
       if (FlavorId != 0)
       {
+        // var oldFlavor = _db.Treats.FirstOrDefault(flavorTreat => treat.Flavors.Contains(FlavorId));
+        // _db.FlavorTreats.Remove(oldFlavor);
         _db.FlavorTreats.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
       }
       _db.Entry(treat).State = EntityState.Modified;

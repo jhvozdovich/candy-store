@@ -2,3 +2,25 @@
   Layout ="_Layout";
 }
 
+@model Honeydukes.Models.Treat
+
+<h2>@Html.DisplayFor(model => model.Name) Repairo</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+  <br>
+  @Html.Label("Select Flavor")
+  @Html.DropDownList("FlavorId")
+  <br>
+  @Html.LabelFor(model => model.Price)
+  @Html.EditorFor(model => model.Price)
+  <br>
+  <input type="submit" value="Save" />
+}
+
+
+<button>@Html.ActionLink("Back", "Details", new { id = @Html.ValueFor(model => model.TreatId)})</button>
