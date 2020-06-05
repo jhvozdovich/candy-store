@@ -33,6 +33,10 @@ body {
   float: left;
 }
 
-h1 {
+h1, h2, h3, h4 {
   color: rgb(95, 180, 189);
+}
+
+button {
+  margin: 5px;
 }

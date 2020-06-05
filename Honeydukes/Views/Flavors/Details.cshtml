@@ -6,6 +6,8 @@
 @using Honeydukes.Models
 
 <h2>@Html.DisplayFor(model => model.Name)</h2>
+<p>@Html.ActionLink("Reparo", "Edit", new { id = Model.FlavorId }) @Html.ActionLink("Reducto", "Delete", new { id = Model.FlavorId })</p>
+
 
 @if(@Model.Treats.Count == 0)
 {
@@ -21,8 +23,6 @@ else
 }
 
 <button>@Html.ActionLink("Accio Treat", "Create", "Treat")</button>
-<button>@Html.ActionLink("Reparo", "Edit", new { id = Model.FlavorId })<button>
-<button>@Html.ActionLink("Reducto", "Delete", new { id = Model.FlavorId })<button>
-<button>@Html.ActionLink("Back to Home Page", "Index", "Home")</p>
-<button>@Html.ActionLink("Show All Flavours", "Index")</p>
+<br>
+<button>@Html.ActionLink("Back to Treats", "Index")</button>
 
