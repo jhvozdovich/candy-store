@@ -30,7 +30,7 @@ code .
 ```
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=candy-store;uid=root;pwd=YOURMYSQLPASSWORDHERE;"
+    "DefaultConnection": "Server=localhost;Port=3306;database=jessica_hvozdovich;uid=root;pwd=YOURMYSQLPASSWORDHERE;"
   }
 }
 ```
@@ -58,29 +58,63 @@ dotnet run
 2. Select the SQL + button in the top left of the navigation bar.
 3. Paste the following in the query section to create the database:
 
-<!-- ```
-CREATE DATABASE `blockbuster`;
+```
+CREATE DATABASE `jessica_hvozdovich`;
 
-USE `blockbuster`;
-w
+USE `jessica_hvozdovich`;
+
 CREATE TABLE `Treats` (
   `TreatId` int(11) NOT NULL AUTO_INCREMENT,
-  `FlavorId` int(11) NOT NULL DEFAULT '0',
-  `Name` varchar(255) DEFAULT NULL,
-  `RegularTreat` tinyint(4) DEFAULT '0',
-  `Usual` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`TreatId`)
+  `Name` longtext,
+  `Price` int(11) NOT NULL,
+  `UserId` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`TreatId`),
+  KEY `IX_Treats_UserId` (`UserId`),
+  CONSTRAINT `FK_Treats_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE RESTRICT
 );
 
-CREATE TABLE  Flavors` (
+CREATE TABLE `Flavors` (
   `FlavorId` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(255) DEFAULT NULL,
-  `Specialty` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`FlavorId`)
+  `Name` longtext,
+  `UserId` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`FlavorId`),
+  KEY `IX_Flavors_UserId` (`UserId`),
+  CONSTRAINT `FK_Flavors_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE RESTRICT
 );
 
-``` -->
-<!-- REPLACE WITH CORRECT COMMANDS -->
+CREATE TABLE `FlavorTreat` (
+  `FlavorTreatId` int(11) NOT NULL AUTO_INCREMENT,
+  `FlavorId` int(11) NOT NULL,
+  `TreatId` int(11) NOT NULL,
+  PRIMARY KEY (`FlavorTreatId`),
+  KEY `IX_FlavorTreat_FlavorId` (`FlavorId`),
+  KEY `IX_FlavorTreat_TreatId` (`TreatId`),
+  CONSTRAINT `FK_FlavorTreat_Flavors_FlavorId` FOREIGN KEY (`FlavorId`) REFERENCES `flavors` (`FlavorId`) ON DELETE CASCADE,
+  CONSTRAINT `FK_FlavorTreat_Treats_TreatId` FOREIGN KEY (`TreatId`) REFERENCES `treats` (`TreatId`) ON DELETE CASCADE
+);
+
+CREATE TABLE `AspNetUsers` (
+  `Id` varchar(255) NOT NULL,
+  `NormalizedUserName` varchar(256) DEFAULT NULL,
+  `Email` varchar(256) DEFAULT NULL,
+  `NormalizedEmail` varchar(256) DEFAULT NULL,
+  `EmailConfirmed` bit(1) NOT NULL,
+  `PasswordHash` longtext,
+  `SecurityStamp` longtext,
+  `ConcurrencyStamp` longtext,
+  `PhoneNumber` longtext,
+  `PhoneNumberConfirmed` bit(1) NOT NULL,
+  `TwoFactorEnabled` bit(1) NOT NULL,
+  `LockoutEnd` datetime(6) DEFAULT NULL,
+  `LockoutEnabled` bit(1) NOT NULL,
+  `AccessFailedCount` int(11) NOT NULL,
+  `UserName` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `UserNameIndex` (`NormalizedUserName`),
+  KEY `EmailIndex` (`NormalizedEmail`)
+);
+
+```
 
 4. Press the lightning bolt button to run this command.
 5. If the database does not appear, right click in the schemas bar and select Refresh All.
@@ -134,7 +168,7 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 
 
 ### Resources
-(Background Image)[LINK HERE]
+(Background Image)[http://www.uofanguide.com/honeydukes]
 
 #### License
 

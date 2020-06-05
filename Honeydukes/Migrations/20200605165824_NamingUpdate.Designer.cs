@@ -3,14 +3,16 @@ using System;
 using Honeydukes.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Honeydukes.Migrations
 {
     [DbContext(typeof(HoneydukesContext))]
-    partial class HoneydukesContextModelSnapshot : ModelSnapshot
+    [Migration("20200605165824_NamingUpdate")]
+    partial class NamingUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -111,6 +113,8 @@ namespace Honeydukes.Migrations
                     b.Property<int>("Price");
 
                     b.Property<string>("UserId");
+
+                    b.Property<string>("Vendor");
 
                     b.HasKey("TreatId");
 
