@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Honeydukes.Models.Flavor
+@using Honeydukes.Models
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+
+@if(@Model.Treats.Count == 0)
+{
+  <h4>No treats in @Html.DisplayFor(model => model.Name)</h4>
+}
+else
+{
+  <h3>Available Treats</h3>
+  @foreach(var join in Model.Treats)
+  {
+    <p>@join.Treat.Name</p>
+  }
+}
+
+<button>@Html.ActionLink("Accio Treat", "Create", "Treat")</button>
+<button>@Html.ActionLink("Reparo", "Edit", new { id = Model.FlavorId })<button>
+<button>@Html.ActionLink("Reducto", "Delete", new { id = Model.FlavorId })<button>
+<button>@Html.ActionLink("Back to Home Page", "Index", "Home")</p>
+<button>@Html.ActionLink("Show All Flavours", "Index")</p>
+
