@@ -38,14 +38,26 @@ h1, h2, h3, h4 {
   color: rgb(95, 180, 189);
 }
 
-button, .btn {
+button {
   margin: 5px;
 }
 
-.hello
-{
-  opacity: 0.9;
+.navbtn {
+  margin-top: 3px;
+  margin-left: 5px;
+}
+
+.nav li.hello {
+  opacity: 0.95;
   color: white;
+  margin-top: 10px;
   float: right;
-  margin-top: 11px;
+}
+
+.nav-greeting li {
+  float: right;
+}
+
+.nav-greeting {
+  margin-right: 10%;
 }
