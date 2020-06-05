@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Honeydukes.Models.Flavor
+
+<h2> Last chance not to destroy @Html.DisplayFor(model => model.Name)!</h2>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="REDUCTO"/>
+}
+
+<button>@Html.ActionLink("Back", "Details", new { id = @Html.ValueFor(model => model.FlavorId)})</button>
