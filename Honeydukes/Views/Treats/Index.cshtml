@@ -1,0 +1,23 @@
+@{
+    Layout ="_Layout";
+}
+
+@using Honeydukes.Models;
+@model IEnumerable<Honeydukes.Models.Treat>;
+
+<h1>Treats</h1>
+
+@if(Model.Any())
+{
+  @foreach(Treat treat in Model)
+  {
+    <li>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId})</li>
+  }
+}
+else
+{
+  <p>No treats available! Accio treats!</p>
+}
+
+<button>@Html.ActionLink("Accio Treat", "Create")</button>
+<button>@Html.ActionLink("Home", "Index", "Home")</button>

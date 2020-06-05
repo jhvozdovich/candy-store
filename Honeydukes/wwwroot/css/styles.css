@@ -5,6 +5,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(60, 71, 77)
 }
 
 .box {
