@@ -5,11 +5,11 @@
 #### Author: **_Jessica Hvozdovich_**
 #### June 5, 2020
 
-<!-- ![Site Screenshot](./Honeydukes/wwwroot/img/readmescreenshot.jpg) -->
+![Site Screenshot](./Honeydukes/wwwroot/img/readmescreenshot.jpg)
 
 ### Description
 
-_This application takes user input to display different Flavors and Treats available at a candy store. The purpose of this project is to create a C# web application that employs a database with a many-to-many relationship using MySQL and Entity Framework. Identity is also used to support user authentication and authorization. It also demonstrates the use of MVC routes that follow RESTful conventions for full CRUD functionality._
+_This application accepts authenticated users' input to display different Flavors and Treats available at a magical candy store. The purpose of this project is to create a C# web application that employs a database with a many-to-many relationship using MySQL and Entity Framework. Identity is also used to support user authentication and authorization. It also demonstrates the use of MVC routes that follow RESTful conventions for full CRUD functionality._
 
 ### Instructions for use:
 
@@ -145,16 +145,24 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 | **User enters home page** | User Input:"URL: localhost:5000/" | Output: “Welcome!” |
 | **User can navigate to a page that lists Flavors** | User Input:"Click: View Flavors" | Output: “Fruitti, Cherry, Earwax” |
 | **If no Flavors have been added a message appears** | User Input:"Click: View Flavors" | Output: “You have no Flavors listed! Accio Flavors!” |
-| **User can navigate to an add Flavors page** | User Input:"Click: Accio Flavor" | Output: “Create a new Flavor.” |
+| **User can navigate to an Add Flavors form** | User Input:"Click: Accio Flavor" | Output: “Create a new Flavor.” |
 | **User can fill out the Add Flavors form** | User Input:"Enter New Flavor Name: Lemon" | Output:  Flavors: Fruitti, Cherry, Earwax, Lemon” |
+| **User can submit an Edit Flavors form** | User Input:"Click: Reparo Lemon" | Output: “Name: Lemon" |
 | **User can click on Flavors to view the Treats available with that Flavor** | User Input:"Click: Earwax" | Output: “Treats: Bertie Bott's Every Flavour Beans” |
 | **If no Treats have been added a message appears** | User Input:"Click: View Treats" | Output: “You have no Treats listed. Accio Treats!” |
 | **User can navigate to a create new Treat with a form** | User Input:"Click: Accio Treat" | Output: “Treat Form" |
-| **User can add a new Treat linked to a Flavor** | User Input:"Treat Name: Fizzing Whizzbees, Vendor: Trolley, Flavor: Sherbert, Price: 2 Sickles" | Output: “Sherbert Treats: Bertie Bott's Every Flavour Beans, Fizzing Whizzbees” |
-| **User can view Treat details when clicked** | User Input:"Click: Fizzing Whizzbees" | Output: “Treat Details: "Name: Fizzing Whizzbees, Vendor: Trolley, Flavor: Sherbert, Price: 2 Sickles” |
 | **User can delete a Flavor** | User Input:"Click: Reducto!" | Output: “You have removed this Flavor!” |
+| **User can navigate to a page that lists Treats** | User Input:"Click: View Treats" | Output: “Fruitti, Cherry, Earwax” |
+| **If no Flavors have been added a message appears** | User Input:"Click: View Flavors" | Output: “You have no Flavors listed! Accio Flavors!” |
+| **User can add a new Treat linked to a Flavor** | User Input:"Treat Name: Fizzing Whizzbees, Flavor: Sherbert, Price: 2 Sickles" | Output: “Sherbert Treats: Bertie Bott's Every Flavour Beans, Fizzing Whizzbees” |
+| **User can view Treat details when clicked** | User Input:"Click: Fizzing Whizzbees" | Output: “Treat Details: "Name: Fizzing Whizzbees, Flavor: Sherbert, Price: 2 Sickles” |
+| **User can submit an Edit Treat form** | User Input:"Click: Reparo Fizzing Whizzbees" | Output: “Treat Details: "Name: Fizzing Whizzbees, Flavor: Sherbert, Price: 2 Sickles" |
 | **User can delete a Treat** | User Input:"Click: Reducto!" | Output: “You have removed this Treat!” |
-| **User can fill out registration information** | User Input:"Username: hpotter Name: Harry Password: 3Xp3LL1@rmu5" | Output: “Welcome Harry” |
+| **User can add additional Flavors to a Treat** | User Input:"Click: Accio Fizzing Whizzbees Flavor" | Output: “Add Flavor Form” |
+| **User can register** | User Input:"Username: hpotter Name: Harry Password: 3Xp3LL1@rmu5" | Output: “Home Page” |
+| **User can Login** | User Input:"Username: hpotter Password: 3Xp3LL1@rmu5" | Output: “Welcome Harry” |
+| **User must be logged in to perform actions that are not readonly** | User Input:"Username: hpotter Name: Harry Password: 3Xp3LL1@rmu5" | Output: “Welcome Harry” |
+| **User can Logout** | User Input:"Click: Logout" | Output: “Greetings Muggle!” |
 
 ### Stretch Goals
 | Spec | Input | Output |
