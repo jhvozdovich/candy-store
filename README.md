@@ -88,6 +88,7 @@ CREATE TABLE  Flavors` (
 ### Known Bugs
 
 No bugs have been identified at the time of this update.
+Passwords requirements are currently reduced for testing.
 
 ### Support and Contact Information
 
