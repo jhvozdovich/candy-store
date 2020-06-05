@@ -1,0 +1,15 @@
+@{
+    Layout ="_Layout";
+}
+
+@model Honeydukes.Models.Flavor
+
+<h2>Accio New Flavour!</h2>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => Model.Name)
+  @Html.TextBoxFor(model => model.Name)
+  <input type="submit" value="Add"/>
+}
+
+<p>@Html.ActionLink("Back to Flavours", "Index")</p>

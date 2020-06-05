@@ -18,10 +18,25 @@ namespace Honeydukes.Controllers
       _db = db;
     }
 
+    [HttpGet]
     public ActionResult Index()
     {
       List<Flavor> model = _db.Flavors.ToList();
       return View(model);
+    }
+
+    [HttpGet]
+    public ActionResult Create()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Flavor flavor)
+    {
+      _db.Flavors.Add(flavor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }
