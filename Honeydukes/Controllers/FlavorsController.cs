@@ -25,6 +25,7 @@ namespace Honeydukes.Controllers
       return View(model);
     }
 
+    [Authorize]
     [HttpGet]
     public ActionResult Create()
     {
@@ -49,6 +50,7 @@ namespace Honeydukes.Controllers
       return View(thisFlavor);
     }
 
+    [Authorize]
     [HttpGet]
     public ActionResult Edit(int id)
     {
@@ -64,6 +66,7 @@ namespace Honeydukes.Controllers
       return RedirectToAction("Details", new { id = flavor.FlavorId });
     }
 
+    [Authorize]
     [HttpGet]
     public ActionResult Delete(int id)
     {
