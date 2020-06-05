@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Honeydukes.Models.Treat
+
+<h2>Accio Flavor</h2>
+
+<h4>@Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  @Html.Label("Select Flavor")
+  @Html.DropDownList("FlavorId")
+
+  <input type="submit" value="ACCIO"/>
+}

@@ -30,4 +30,5 @@ else
 <p>@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(model => model.Price) Sickles</p>
 
 <br>
+<button>@Html.ActionLink("Accio Flavor", "AddFlavor", new { id = Model.TreatId})</button>
 <button>@Html.ActionLink("Back to Treats", "Index")</button>
