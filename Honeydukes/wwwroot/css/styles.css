@@ -38,6 +38,14 @@ h1, h2, h3, h4 {
   color: rgb(95, 180, 189);
 }
 
-button {
+button, .btn {
   margin: 5px;
+}
+
+.hello
+{
+  opacity: 0.9;
+  color: white;
+  float: right;
+  margin-top: 11px;
 }
