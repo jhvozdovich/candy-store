@@ -1,0 +1,15 @@
+@{
+    Layout ="_Layout";
+}
+
+@model Honeydukes.Models.Treat
+
+<h3> Last chance not to destroy @Html.DisplayFor(model => model.Name)!</h3>
+
+@Html.DisplayFor(model => model.Name)
+@using (Html.BeginForm())
+{
+  <input type="submit" value="REDUCTO"/>
+}
+
+<button>@Html.ActionLink("Back", "Details", new { id = @Html.ValueFor(model => model.TreatId)})</button>

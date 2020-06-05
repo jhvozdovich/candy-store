@@ -70,13 +70,34 @@ namespace Honeydukes.Controllers
     {
       if (FlavorId != 0)
       {
-        // var oldFlavor = _db.Treats.FirstOrDefault(flavorTreat => treat.Flavors.Contains(FlavorId));
+        // int oldFlavorTreat;
+        // foreach ( flavor in treat.Flavors)
+        // {
+        //   oldFlavorTreat =
+        // }
+        // var oldFlavor = _db.FlavorTreats.FirstOrDefault(flavorTreat => treat.Flavors.Contains(FlavorId) && flavorTreat.TreatId == treat.TreatId);
         // _db.FlavorTreats.Remove(oldFlavor);
         _db.FlavorTreats.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
       }
       _db.Entry(treat).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = treat.TreatId });
+    }
+
+    [HttpGet]
+    public ActionResult Delete(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      return View(thisTreat);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      _db.Treats.Remove(thisTreat);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }
