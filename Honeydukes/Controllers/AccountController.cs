@@ -55,14 +55,21 @@ namespace Honeydukes.Controllers
     [HttpPost]
     public async Task<ActionResult> Login(LoginViewModel model)
     {
-      Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, isPersistent: true, lockoutOnFailure: false);
-      if (result.Succeeded)
+      if (model.UserName == null || model.Password == null)
       {
-        return RedirectToAction("Index");
+        return View();
       }
       else
       {
-        return View();
+        Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, isPersistent: true, lockoutOnFailure: false);
+        if (result.Succeeded)
+        {
+          return RedirectToAction("Index");
+        }
+        else
+        {
+          return View();
+        }
       }
     }
 
