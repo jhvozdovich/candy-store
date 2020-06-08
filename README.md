@@ -14,14 +14,14 @@ _This application accepts authenticated users' input to display different Flavor
 ### Instructions for use:
 
 1. Open Terminal (macOS) or PowerShell (Windows)
-2. To download the project Flavory to your desktop enter the following commands:
+2. To download the project Directory to your desktop enter the following commands:
 ```
 cd Desktop
 git clone https://github.com/jhvozdovich/candy-store.git
-cd candy-store (or the file name you created for the main Flavory of the download)
+cd candy-store (or the file name you created for the main Directory of the download)
 ```
 3. To view the downloaded files, open them in a text editor or IDE of your choice.
-* if you have VSCode for example, when your terminal is within the main project Flavory you can open all of the files with the command:
+* if you have VSCode for example, when your terminal is within the main project Directory you can open all of the files with the command:
 ```
 code .
 ```
