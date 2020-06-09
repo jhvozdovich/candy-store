@@ -34,14 +34,7 @@ code .
   }
 }
 ```
-* Make any other changes needed if you have an alternative server, port, or uid selected. These are the default settings.
-
-6. To install the necessary dependencies and start a local host, after replicating the database steps below run the following commands:
-```
-dotnet restore
-dotnet build
-dotnet run
-```
+* Add your MySQL password and make any other changes needed if you have an alternative server, port, or uid selected. These are the default settings.
 
 #### If you need to install and configure MySQL:
 1. Download the MySQL Community Server DMG file [here](https://dev.mysql.com/downloads/file/?id=484914) with the "No thanks, just start my download" link.
@@ -54,70 +47,24 @@ dotnet run
 5. Open Local Instance 3306 with the password you set.
 
 #### To create a local version of the database:
-1. Open MySQL Workbench and Local Instance 3306.
-2. Select the SQL + button in the top left of the navigation bar.
-3. Paste the following in the query section to create the database:
-
+1. Open a terminal within your text editor or IDE.
+2. Navigate to the Honeydukes folder with the following command:
 ```
-CREATE DATABASE `jessica_hvozdovich`;
-
-USE `jessica_hvozdovich`;
-
-CREATE TABLE `Treats` (
-  `TreatId` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` longtext,
-  `Price` int(11) NOT NULL,
-  `UserId` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`TreatId`),
-  KEY `IX_Treats_UserId` (`UserId`),
-  CONSTRAINT `FK_Treats_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE RESTRICT
-);
-
-CREATE TABLE `Flavors` (
-  `FlavorId` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` longtext,
-  `UserId` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`FlavorId`),
-  KEY `IX_Flavors_UserId` (`UserId`),
-  CONSTRAINT `FK_Flavors_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE RESTRICT
-);
-
-CREATE TABLE `FlavorTreat` (
-  `FlavorTreatId` int(11) NOT NULL AUTO_INCREMENT,
-  `FlavorId` int(11) NOT NULL,
-  `TreatId` int(11) NOT NULL,
-  PRIMARY KEY (`FlavorTreatId`),
-  KEY `IX_FlavorTreat_FlavorId` (`FlavorId`),
-  KEY `IX_FlavorTreat_TreatId` (`TreatId`),
-  CONSTRAINT `FK_FlavorTreat_Flavors_FlavorId` FOREIGN KEY (`FlavorId`) REFERENCES `flavors` (`FlavorId`) ON DELETE CASCADE,
-  CONSTRAINT `FK_FlavorTreat_Treats_TreatId` FOREIGN KEY (`TreatId`) REFERENCES `treats` (`TreatId`) ON DELETE CASCADE
-);
-
-CREATE TABLE `AspNetUsers` (
-  `Id` varchar(255) NOT NULL,
-  `NormalizedUserName` varchar(256) DEFAULT NULL,
-  `Email` varchar(256) DEFAULT NULL,
-  `NormalizedEmail` varchar(256) DEFAULT NULL,
-  `EmailConfirmed` bit(1) NOT NULL,
-  `PasswordHash` longtext,
-  `SecurityStamp` longtext,
-  `ConcurrencyStamp` longtext,
-  `PhoneNumber` longtext,
-  `PhoneNumberConfirmed` bit(1) NOT NULL,
-  `TwoFactorEnabled` bit(1) NOT NULL,
-  `LockoutEnd` datetime(6) DEFAULT NULL,
-  `LockoutEnabled` bit(1) NOT NULL,
-  `AccessFailedCount` int(11) NOT NULL,
-  `UserName` varchar(256) DEFAULT NULL,
-  PRIMARY KEY (`Id`),
-  UNIQUE KEY `UserNameIndex` (`NormalizedUserName`),
-  KEY `EmailIndex` (`NormalizedEmail`)
-);
-
+cd Honeydukes
 ```
+3. Run the following command to recreate the project's database structure:
+```
+dotnet ef database update
+```
+4. Verify that the database structure is present by refreshing the MySQL workbench schemas. There should now be a directory for jessica_hvozdovich.
 
-4. Press the lightning bolt button to run this command.
-5. If the database does not appear, right click in the schemas bar and select Refresh All.
+#### To run the program:
+To install the necessary dependencies and start a local host, after replicating the database run the following commands:
+```
+dotnet restore
+dotnet build
+dotnet run
+```
 
 ### Known Bugs
 
