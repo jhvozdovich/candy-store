@@ -123,8 +123,8 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 
 
 ### Resources
-* (Background Image)[http://www.uofanguide.com/honeydukes]
-* (Logo)[https://www.character.com/products/harry-potter-honeydukes-sweatshirt?variant=19128224251966]
+* [Background Image](http://www.uofanguide.com/honeydukes)
+* [Logo](https://www.character.com/products/harry-potter-honeydukes-sweatshirt?variant=19128224251966)
 
 #### License
 
